@@ -15,10 +15,15 @@ exports.login = function(req, res){
 	var queryDB = "SELECT * from LoginDetails where email='"+email+"' and password='"+pass+"'";
 	console.log(queryDB);
 	connection.query("SELECT * from LoginDetails where email='"+email+"' and password='"+pass+"'", function (err, rows, fields) {
-	  	if (err) throw err
+	  	if (err){ console.log(err); }
 	  	// console.log(err);
 	  	// console.log('The solution is: ', rows[0].name);
-	  	res.send(rows[0].name);
+		else{
+	  		console.log(rows[0]);
+			//res.send(rows[0].name);
+			return;
+		}
 	});	
-	connection.end()
+	//connection.end();
+	
 };
