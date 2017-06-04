@@ -22,9 +22,14 @@ app.get('/', function (req, res) {
 app.post('/login', function (req, res) {
   // console.log(req.body.password);
   	controller.login(req,res);
-  	res.redirect('/dashboard');
+  	//res.redirect('/dashboard');
 })
 
+app.post('/create', function (req, res) {
+  // console.log(req.body.password);
+  	controller.create(req,res);
+  	//res.redirect('/dashboard');
+})
 app.get('/dashboard', function(req, res){
 	res.render('status.ejs');
 })
